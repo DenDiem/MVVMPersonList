@@ -1,0 +1,80 @@
+﻿<Window x:Class="WpfSimpleMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfSimpleMVVM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="619.161" Width="1062.951" FontSize="14" FontFamily="Segoe UI Semibold">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="71*"></RowDefinition>
+            <RowDefinition Height="41.6"/>
+            <RowDefinition Height="34.4"/>
+            <RowDefinition Height="71*"></RowDefinition>
+            <RowDefinition Height="76*"/>
+            <RowDefinition Height="77*"></RowDefinition>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="73.2"></RowDefinition>
+            <RowDefinition Height="74"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGrid CanUserDeleteRows="False" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" Name="DataGrid2" AutoGenerateColumns="False" ItemsSource="{Binding PersonList}" Grid.Row="2" Grid.RowSpan="7" Grid.ColumnSpan="9" Margin="0,34.2,0,-0.4" >
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True"  Header="ID" Binding="{Binding ThisID}"/>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Second Name" Binding="{Binding SecondName}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding EMail}" />
+                <DataGridTextColumn IsReadOnly="True"  Header="Birthday" Binding="{Binding Birthday}"/>
+                <DataGridTextColumn IsReadOnly="True"  Header="Agult" Binding="{Binding IsAdult}"/>
+                <DataGridTextColumn IsReadOnly="True"  Header="Birthday today?" Binding="{Binding IsBirthday}"/>
+                <DataGridTextColumn IsReadOnly="True"  Header="Sun sign" Binding="{Binding SunSign}" />
+                <DataGridTextColumn IsReadOnly="True"  Header="Chinese sign" Binding="{Binding ChineseSign}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" TextWrapping="Wrap" Text="{Binding Nameinput}" VerticalAlignment="Top" Grid.Row="2" Width="60" Height="34" Margin="14,0.2,14,0" />
+        <TextBox VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="2" TextWrapping="Wrap"  Text="{Binding Secondnameinput}" VerticalAlignment="Top" Grid.Row="2" Width="60" Height="34" Margin="14,0.2,14,0" />
+        <TextBox VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="3" TextWrapping="Wrap"  Text="{Binding Emailinput}" VerticalAlignment="Top" Grid.Row="2" Width="60" Height="34" Margin="14,0.2,14,0" />
+        <TextBox VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="4" TextWrapping="Wrap"  Text="{Binding Dateinput}" VerticalAlignment="Top" Grid.Row="2" Width="60" Height="34" Margin="14,0.2,14,0" />
+        <TextBox VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="5" TextWrapping="Wrap"  Text="{Binding AdultOutput}" VerticalAlignment="Top" Grid.Row="2" Width="60" Height="34" Margin="14,0.2,14,0" />
+        <TextBox VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="6" TextWrapping="Wrap"  Text="{Binding BirthDayOutput}" VerticalAlignment="Top" Grid.Row="2" Width="60" Height="34" Margin="14,0.2,14,0" />
+        <TextBox VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="7" TextWrapping="Wrap"  Text="{Binding SunSignOutput}" VerticalAlignment="Top" Grid.Row="2" Width="60" Height="34" Margin="14,0.2,14,0" />
+        <TextBox VerticalContentAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="8" TextWrapping="Wrap"  Text="{Binding ChineseSignOutput}" VerticalAlignment="Top" Grid.Row="2" Width="60" Height="34" Margin="14,0.2,14,0" />
+        <Button Content="filtre" Grid.Column="9" HorizontalAlignment="Left" Command="{Binding FiltreCommand}" Grid.Row="2" VerticalAlignment="Bottom" Width="75" Margin="10,0,0,5.2"/>
+        <Button Content="Save"  Command="{Binding SaveCommand}" Grid.Column="9"  Grid.Row="8" VerticalAlignment="Top" Margin="49,18.4,40.8,0" Grid.ColumnSpan="3" Height="46" RenderTransformOrigin="0.676,0.522"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="1" Grid.RowSpan="2" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Margin="0,71,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="1" Grid.RowSpan="2" TextWrapping="Wrap" Text="Second Name" VerticalAlignment="Top" Grid.ColumnSpan="3" Margin="74,71,0,0" Width="107"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="3" Grid.RowSpan="2" TextWrapping="Wrap" Text="Email Name" VerticalAlignment="Top" Margin="0,71,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="4" Grid.RowSpan="2" TextWrapping="Wrap" Text="Birthday" VerticalAlignment="Top" Margin="0,71,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="5" Grid.RowSpan="2" TextWrapping="Wrap" Text="Adult bool" VerticalAlignment="Top" Margin="0,71,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="6" Grid.RowSpan="2" TextWrapping="Wrap" Text="Birthday bool" VerticalAlignment="Top" Margin="0,71,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="7" Grid.RowSpan="2" TextWrapping="Wrap" Text="Sun Sign" VerticalAlignment="Top" Margin="0,71,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="8" Grid.RowSpan="2" TextWrapping="Wrap" Text="China Sign" VerticalAlignment="Top" Margin="0,71,0,0"/>
+        <TextBlock Grid.Column="9" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Margin="0,34.2,0,0" Grid.RowSpan="2"/>
+        <TextBlock Grid.Column="9" HorizontalAlignment="Left"  Grid.Row="3" TextWrapping="Wrap" Text="Second Name" VerticalAlignment="Top" RenderTransformOrigin="-0.009,-0.032" Grid.ColumnSpan="2" Margin="0,70.8,0,0" Grid.RowSpan="2" Width="104"/>
+        <TextBlock Grid.Column="9" HorizontalAlignment="Left" Grid.Row="4" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Margin="0,75.6,0,0" Grid.RowSpan="2"/>
+        <TextBlock Grid.Column="9" HorizontalAlignment="Left" Grid.Row="5" TextWrapping="Wrap" Text="Birthday" VerticalAlignment="Bottom" Margin="0,0,0,52.4" Grid.RowSpan="2"/>
+        <TextBox Grid.ColumnSpan="2" Grid.Column="10" HorizontalAlignment="Left" Height="19" Grid.Row="2" TextWrapping="Wrap" Text="{Binding NameinputAdd}"  VerticalAlignment="Top" Width="177" Margin="0,34.2,-0.2,0" Grid.RowSpan="2"/>
+        <TextBox Grid.ColumnSpan="2" Grid.Column="10" HorizontalAlignment="Left" Height="19"  Grid.Row="3" TextWrapping="Wrap" Text="{Binding SecondnameinputAdd}" VerticalAlignment="Top" Width="177" Margin="0,70.8,-0.2,0" Grid.RowSpan="2"/>
+        <TextBox Grid.ColumnSpan="2" Grid.Column="10" HorizontalAlignment="Left" Height="23"  Grid.Row="4" TextWrapping="Wrap" Text="{Binding EmailinputAdd}" VerticalAlignment="Top" Width="177" Margin="0,75.6,-0.2,0" Grid.RowSpan="2"/>
+        <DatePicker HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="14" Width="167" SelectedDate="{Binding DateinputAdd,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" Grid.Column="10"  Grid.Row="6"/>
+        <Button Content="Add" Grid.Column="10" Command="{Binding AddCommand}" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Width="75"/>
+         <TextBlock Grid.Column="10" HorizontalAlignment="Left" Margin="16,35,0,0" TextWrapping="Wrap" Text="{Binding  SelectedItem.ThisID}" VerticalAlignment="Top" Height="26" Width="59"/>
+        <TextBlock Grid.Column="9" HorizontalAlignment="Left" Margin="49,35,0,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Width="78" Grid.ColumnSpan="2" Height="37" Grid.RowSpan="2"/>
+        <Button Content="DELETE" Command="{Binding DeleteCommand}" Grid.Column="11" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>
+
